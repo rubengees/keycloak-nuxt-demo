@@ -37,7 +37,7 @@ export default {
     '/api/': 'http://localhost:8080'
   },
   auth: {
-    reidrect: {
+    redirect: {
       callback: '/callback'
     },
     strategies: {
