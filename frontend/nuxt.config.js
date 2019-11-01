@@ -17,16 +17,8 @@ export default {
   loading: { color: '#fff' },
   css: [],
   plugins: [],
-  buildModules: [
-    // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module'
-  ],
-  modules: [
-    // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/proxy',
-    '@nuxtjs/axios',
-    '@nuxtjs/auth'
-  ],
+  buildModules: ['@nuxtjs/eslint-module'],
+  modules: ['@nuxtjs/proxy', '@nuxtjs/axios', '@nuxtjs/auth'],
   router: {
     middleware: ['auth']
   },
