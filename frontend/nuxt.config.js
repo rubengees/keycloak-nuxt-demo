@@ -42,6 +42,23 @@ export default {
         scope: ['openid', 'profile', 'email'],
         response_type: 'token id_token',
         client_id: 'nuxt'
+      },
+      local: {
+        endpoints: {
+          login: {
+            url:
+              'http://localhost:8180/auth/realms/keycloak-nuxt-demo/protocol/openid-connect/token',
+            method: 'post',
+            propertyName: 'access_token'
+          },
+          logout: null,
+          user: {
+            url:
+              'http://localhost:8180/auth/realms/keycloak-nuxt-demo/protocol/openid-connect/userinfo',
+            method: 'get',
+            propertyName: null
+          }
+        }
       }
     }
   },

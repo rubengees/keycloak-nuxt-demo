@@ -3,6 +3,7 @@
     <span v-if="todos">Works! Todos: {{ todos }}</span>
     <span v-if="errorMessage">{{ errorMessage }}</span>
     <br />
+    <button @click="fetchNewTodos">Fetch new todos</button>
     <button @click="logout">Logout</button>
   </div>
 </template>
@@ -19,6 +20,13 @@ export default {
     }
   },
   methods: {
+    async fetchNewTodos() {
+      try {
+        this.todos = (await this.$axios.get('/api/todos')).data
+      } catch (e) {
+        this.errormessage = e.message | e
+      }
+    },
     async logout() {
       try {
         await this.$auth.logout()
