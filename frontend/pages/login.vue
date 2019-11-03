@@ -4,43 +4,38 @@
     <input v-model="password" type="text" placeholder="Password" />
     <button @click="login">Login</button>
     <button @click="oauthLogin">OAuth login</button>
+    <div v-if="errorMessage">
+      <br />
+      <span>{{ errorMessage }}</span>
+    </div>
   </div>
 </template>
 
 <script>
-import querystring from 'querystring'
-
 export default {
   data() {
     return {
-      username: '',
-      password: ''
+      username: "",
+      password: "",
+      errorMessage: null
     }
   },
   methods: {
-    login() {
-      const form = {
-        client_id: 'nuxt',
-        username: this.username,
-        password: this.password,
-        grant_type: 'password'
+    async login() {
+      try {
+        await this.$auth.loginWith("refresh", {
+          data: { username: this.username, password: this.password }
+        })
+      } catch (e) {
+        this.errorMessage = e.message || e
       }
-
-      return this.$auth
-        .loginWith('local', {
-          data: querystring.stringify(form),
-          config: {
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-          }
-        })
-        .catch((e) => {
-          alert(e.message || e)
-        })
     },
-    oauthLogin() {
-      return this.$auth.loginWith('social').catch((e) => {
-        alert(e.message || e)
-      })
+    async oauthLogin() {
+      try {
+        await this.$auth.loginWith("social")
+      } catch (e) {
+        this.errorMessage = e.message || e
+      }
     }
   }
 }

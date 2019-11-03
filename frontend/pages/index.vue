@@ -12,7 +12,7 @@
 export default {
   async asyncData({ $axios }) {
     try {
-      const todos = await $axios.get('/api/todos')
+      const todos = await $axios.get("/api/todos")
 
       return { todos: todos.data, errorMessage: null }
     } catch (e) {
@@ -25,7 +25,7 @@ export default {
       this.errorMessage = null
 
       try {
-        const response = await this.$axios.get('/api/todos')
+        const response = await this.$axios.get("/api/todos")
 
         this.todos = response.data
       } catch (e) {
@@ -39,7 +39,7 @@ export default {
         this.errorMessage = e.message || e
       }
 
-      this.$router.push('/login')
+      this.$router.push("/login")
     }
   }
 }

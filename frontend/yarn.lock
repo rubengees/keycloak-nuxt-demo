@@ -944,22 +944,22 @@
     webpack-node-externals "^1.7.2"
     webpackbar "^4.0.0"
 
-"@nuxtjs/auth@^4.8.4":
-  version "4.8.4"
-  resolved "https://registry.yarnpkg.com/@nuxtjs/auth/-/auth-4.8.4.tgz#f1ef1ae7c94851d107a2b10179c549fd1b3ca791"
-  integrity sha512-47Y1nJSa9Ra/ltsduBY2XJ4hpi35+c4f1eGDO/0qV5z/4MJSLCmDf3f0xMzhrjDAfvutClz76RSty7QL9EVAqw==
+"@nuxtjs/auth@https://github.com/nuxt-community/auth-module.git#feat/refresh":
+  version "4.8.2"
+  resolved "https://github.com/nuxt-community/auth-module.git#59ce5f7cec79c948b155783456af818ac66de5b9"
   dependencies:
-    "@nuxtjs/axios" "^5.6.0"
+    "@nuxtjs/axios" "^5.5.4"
     body-parser "^1.19.0"
-    consola "^2.10.1"
+    consola "^2.9.0"
     cookie "^0.4.0"
+    defu "^0.0.3"
     dotprop "^1.2.0"
     is-https "^1.0.0"
-    js-cookie "^2.2.1"
+    js-cookie "^2.2.0"
     lodash "^4.17.15"
-    nanoid "^2.1.1"
+    nanoid "^2.0.3"
 
-"@nuxtjs/axios@^5.6.0", "@nuxtjs/axios@^5.8.0":
+"@nuxtjs/axios@^5.5.4", "@nuxtjs/axios@^5.8.0":
   version "5.8.0"
   resolved "https://registry.yarnpkg.com/@nuxtjs/axios/-/axios-5.8.0.tgz#78e5abd300bfd6f622e3006ab6f4ef4ef5ff9fdf"
   integrity sha512-1+I2mTUuydKkY/Jz1InpLpkGWpReO5USNWxZpPaQL3py4Kv3sDF83ll/uHGngosyXr+OKBXoALRLCjmwSY77lg==
@@ -4454,7 +4454,7 @@ jest-worker@^24.9.0:
     merge-stream "^2.0.0"
     supports-color "^6.1.0"
 
-js-cookie@^2.2.1:
+js-cookie@^2.2.0:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/js-cookie/-/js-cookie-2.2.1.tgz#69e106dc5d5806894562902aa5baec3744e9b2b8"
   integrity sha512-HvdH2LzI/EAZcUwA8+0nKNtWHqS+ZmijLA30RwZA0bo7ToCckjK5MkGhjED9KoRcXO6BaGI3I9UIzSA1FKFPOQ==
@@ -5063,7 +5063,7 @@ nan@^2.12.1:
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.14.0.tgz#7818f722027b2459a86f0295d434d1fc2336c52c"
   integrity sha512-INOFj37C7k3AfaNTtX8RhsTw7qRy7eLET14cROi9+5HAVbbHuIWUHEauBv5qT4Av2tWasiTY1Jw6puUNqRJXQg==
 
-nanoid@^2.1.1:
+nanoid@^2.0.3:
   version "2.1.6"
   resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-2.1.6.tgz#0665418f692e54cf44f34d4010761f3240a03314"
   integrity sha512-2NDzpiuEy3+H0AVtdt8LoFi7PnqkOnIzYmJQp7xsEU6VexLluHQwKREuiz57XaQC5006seIadPrIZJhyS2n7aw==

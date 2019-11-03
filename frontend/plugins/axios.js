@@ -1,8 +1,13 @@
-export default function(nuxt) {
-  nuxt.$axios.onError((error) => {
+/**
+ * Custom plugin for handling authentication errors in axios responses.
+ *
+ * @param ctx The context.
+ */
+export default ctx => {
+  ctx.$axios.onError(error => {
     if (error.response && error.response.status === 401) {
-      nuxt.$auth.logout()
-      nuxt.redirect('/login')
+      ctx.$auth.logout()
+      ctx.redirect(ctx.$auth.options.redirect.login)
     }
   })
 }
