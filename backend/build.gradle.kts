@@ -11,23 +11,32 @@ group = "com.rubengees"
 version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_11
 
+val developmentOnly: Configuration by configurations.creating
+configurations {
+    runtimeClasspath {
+        extendsFrom(developmentOnly)
+    }
+}
+
 repositories {
     jcenter()
 }
 
 dependencies {
+    implementation(platform("org.keycloak.bom:keycloak-adapter-bom:7.0.1"))
+
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
-
     implementation("org.springframework.boot:spring-boot-starter-web")
-
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+    implementation("org.keycloak:keycloak-spring-boot-starter")
 
-	implementation("org.keycloak:keycloak-spring-boot-starter:6.0.1")
+    developmentOnly("org.springframework.boot:spring-boot-devtools")
 
-    testImplementation("org.springframework.boot:spring-boot-starter-test") {
-        exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
-    }
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.5.2")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.5.2")
 }
 
 tasks.withType<Test> {
