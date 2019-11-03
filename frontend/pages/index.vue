@@ -21,17 +21,22 @@ export default {
   },
   methods: {
     async fetchNewTodos() {
+      this.todos = null
+      this.errorMessage = null
+
       try {
-        this.todos = (await this.$axios.get('/api/todos')).data
+        const response = await this.$axios.get('/api/todos')
+
+        this.todos = response.data
       } catch (e) {
-        this.errormessage = e.message | e
+        this.errorMessage = e.message || e
       }
     },
     async logout() {
       try {
         await this.$auth.logout()
       } catch (e) {
-        this.errorMessage = e.message | e
+        this.errorMessage = e.message || e
       }
 
       this.$router.push('/login')

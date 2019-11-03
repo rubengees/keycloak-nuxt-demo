@@ -16,7 +16,7 @@ export default {
   },
   loading: { color: '#fff' },
   css: [],
-  plugins: [],
+  plugins: ['~/plugins/axios'],
   buildModules: ['@nuxtjs/eslint-module'],
   modules: ['@nuxtjs/proxy', '@nuxtjs/axios', '@nuxtjs/auth'],
   router: {
