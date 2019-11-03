@@ -1,9 +1,11 @@
 package com.rubengees.sample
 
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
-@RestController("/api/todos")
+@RestController
+@RequestMapping("/api/todos")
 class TodoController {
 
     @GetMapping
